@@ -1,0 +1,30 @@
+let NFT=[];
+NFT.push(mintNFT(1098,"ABC","Cars"));
+NFT.push(mintNFT(1235,"EFG","Bikes"));
+NFT.push(mintNFT(1190,"KLM","EV"));
+NFT.push(mintNFT(1765,"XYZ","Solar"));
+
+function mintNFT(token, owner, metadata) {
+    const mint= {
+      TokenName: token,
+      Owner: owner,
+      Metadata: metadata
+    };
+    return mint;
+  }
+
+function listNFTs(){
+    for(let i=0;i<NFT.length;i++){
+        let nft=NFT[i];
+        console.log("NFT "+(i+1));
+        console.log("Token ID: "+nft.TokenName);
+        console.log("Owner: "+nft.Owner);
+        console.log("Metadata:"+nft.Metadata);
+        console.log("....................")
+    }
+}
+listNFTs();
+function getTotalSupply(){
+    console.log("The number of NFT's displayed is "+NFT.length);
+}
+getTotalSupply();
