@@ -1,0 +1,33 @@
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.8.9;
+
+contract variables{
+    uint a;
+    int b;
+    string c="hello";
+    bool d;
+    function set_a(uint _a)public{
+        a=_a;
+    }
+    function get_a()public view returns (uint){
+        return a;
+    }
+    function set_b(int _b)public{
+        b=_b;
+    }
+    function get_b()public view returns (int){
+        return b;
+    }
+    function set_c(string memory _c) public {
+    c = _c;
+    }
+    function get_c() public view returns(string memory){
+    return c;
+    }
+    function set_d(bool _d)public{
+        d=_d;
+    }
+    function get_d()public view returns (bool){
+        return d;
+    }
+}
