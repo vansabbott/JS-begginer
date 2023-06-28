@@ -1,0 +1,28 @@
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.8.9;
+
+contract challenge{
+        string public tn;
+        string public ta;
+        uint public ts;
+
+        mapping (address=>uint) balances;
+
+        constructor(string memory name, string memory abbreviation, uint supply){
+            tn=name;
+            ta=abbreviation;
+            ts=supply;
+            balances[msg.sender]=supply;
+        }
+
+        function mint(address addTemp, uint v) public {
+            balances[addTemp] += v;
+            ts += v;
+        }
+
+        function burn(address addBurn, uint b)public {
+            require(balances[addBurn] >= b, "Insufficient balance");
+            balances[addBurn] -= b;
+            ts -= b;
+        }
+}
