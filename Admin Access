@@ -1,0 +1,27 @@
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.8.9;
+
+contract adminAccess{
+    uint a;
+    address admin;
+
+    constructor(){
+        admin=msg.sender;
+    }
+
+    function check() public view returns(bool){
+        return msg.sender==admin;
+    }
+
+    modifier restrict{
+        require(msg.sender==admin,"Only admin can access");
+        _;
+    }
+
+    function put(uint _a) public restrict{
+        a=_a;
+    }
+    function get() public view restrict returns(uint){
+        return (a);
+    }
+}
